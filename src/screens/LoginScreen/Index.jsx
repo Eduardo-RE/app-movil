@@ -1,28 +1,30 @@
 // import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  Center,
-  FormControl,
-  Input,
-  Text,
-  TextArea,
-  VStack,
-  HStack,
-  Link,
-} from "native-base";
+import { Box, Button, Center, Text, VStack, HStack, Link } from "native-base";
 import { useNavigation } from "@react-navigation/native";
-
 import CustomInput from "../../components/CustomInput";
 import { FormHook } from "../../hooks/formHook";
+import { globalStyles } from "../../styles/globalStyles";
+
 const LoginScreen = () => {
   const navigation = useNavigation();
   const { form, onChange } = FormHook();
   const [errorMessage, setErrorMessage] = useState("");
+  const emailRegex = new RegExp(
+    "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
+  );
 
   const onSubmit = () => {
-    console.log(form);
+    setErrorMessage("");
+
+    if (!form.email || !form.password) {
+      setErrorMessage("Favor de llenar todos los campos");
+      return;
+    }
+
+    if (form.email.search(emailRegex) === -1) {
+      setErrorMessage("Favor de ingresar un correo válido");
+    }
   };
 
   return (
@@ -44,10 +46,10 @@ const LoginScreen = () => {
             }}
           />
           <Link
-            _text={{
-              fontSize: "xs",
+            style={{
               fontWeight: "500",
               color: "indigo.500",
+              ...globalStyles.text,
             }}
             alignSelf="flex-end"
             mt="1"
@@ -64,17 +66,18 @@ const LoginScreen = () => {
           <Text
             fontSize="sm"
             color="coolGray.600"
-            _dark={{
+            style={{
               color: "warmGray.200",
+              ...globalStyles.text,
             }}
           >
             Soy un usuario nuevo.{" "}
           </Text>
           <Link
-            _text={{
+            style={{
               color: "indigo.500",
               fontWeight: "medium",
-              fontSize: "sm",
+              ...globalStyles.text,
             }}
             onPress={() => navigation.navigate("Register")}
           >
