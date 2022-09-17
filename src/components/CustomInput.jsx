@@ -24,7 +24,7 @@ const CustomInput = ({ label, type, placeholder, onChangeText }) => {
     </FormControl>
   );
 };
-
+//
 export default CustomInput;
 
 const styles = StyleSheet.create({
