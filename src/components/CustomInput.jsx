@@ -7,13 +7,13 @@ const CustomInput = ({ label, type, placeholder, onChangeText }) => {
   return (
     <FormControl>
       <FormControl.Label
-        // _text={{
-        //   color: "muted.700",
-        //   fontWeight: 600,
-        //   ...globalStyles.text,
-        // }}
+        _text={{
+          color: "muted.700",
+          fontWeight: 600,
+          ...globalStyles.text,
+        }}
       >
-       
+       {label}
       </FormControl.Label>
       <Input
         type={type}
