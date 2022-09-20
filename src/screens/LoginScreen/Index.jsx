@@ -13,11 +13,6 @@ const LoginScreen = () => {
   const emailRegex = new RegExp(
     "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
   );
-<<<<<<< Updated upstream
-  //dddd
-=======
-
->>>>>>> Stashed changes
   const onSubmit = () => {
     setErrorMessage("");
 
