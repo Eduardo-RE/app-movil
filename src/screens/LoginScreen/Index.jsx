@@ -24,6 +24,7 @@ const LoginScreen = () => {
     if (form.email.search(emailRegex) === -1) {
       setErrorMessage("Favor de ingresar un correo válido");
     }
+    navigation.navigate("home");
   };
 
   return (

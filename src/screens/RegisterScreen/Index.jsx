@@ -9,12 +9,15 @@ const RegisterScreen = () => {
   const navigation = useNavigation();
   const { form, onChange } = FormHook();
   const [errorMessage, setErrorMessage] = useState("");
+
   const emailRegex = new RegExp(
     "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
   );
+
   const onSubmit = () => {
     console.log(form);
   };
+
   return (
     <Center w="100%" bg={"#fff"} flex={1}>
       <Box safeArea p="3" w="100%" maxW="390">
