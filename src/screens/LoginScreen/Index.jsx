@@ -34,6 +34,7 @@ const LoginScreen = () => {
           <CustomInput
             label="Correo electronico"
             type={"text"}
+            autoCapitalize="none"
             onChangeText={(value) => {
               onChange({ name: "email", value });
             }}

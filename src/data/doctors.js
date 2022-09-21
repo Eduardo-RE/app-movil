@@ -1,0 +1,38 @@
+export default [
+  {
+    name: "Dr. John Doe",
+    specialty: "Cardiologo",
+    address: "Calle 1 # 2 - 3",
+    phone: "1234567890",
+    email: "",
+    profilePicture: "",
+    price: 100000,
+  },
+  {
+    name: "Dr. Jane Doe",
+    specialty: "Dermatologo",
+    address: "Calle 1 # 2 - 3",
+    phone: "1234567890",
+    email: "",
+    profilePicture: "",
+    price: 100000,
+  },
+  {
+    name: "Dr. Jane Doe",
+    specialty: "Dermatologo",
+    address: "Calle 1 # 2 - 3",
+    phone: "1234567890",
+    email: "",
+    profilePicture: "",
+    price: 100000,
+  },
+  {
+    name: "Dr. Jane Doe",
+    specialty: "Dermatologo",
+    address: "Calle 1 # 2 - 3",
+    phone: "1234567890",
+    email: "",
+    profilePicture: "",
+    price: 100000,
+  },
+];

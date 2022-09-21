@@ -3,7 +3,7 @@ import React from "react";
 import { FormControl, Input } from "native-base";
 import { globalStyles } from "../styles/globalStyles";
 
-const CustomInput = ({ label, type, placeholder, onChangeText }) => {
+const CustomInput = ({ label, type, placeholder, onChangeText, ...props }) => {
   return (
     <FormControl>
       <FormControl.Label
@@ -13,13 +13,15 @@ const CustomInput = ({ label, type, placeholder, onChangeText }) => {
           ...globalStyles.text,
         }}
       >
-       {label}
+        {label}
       </FormControl.Label>
       <Input
         type={type}
         placeholder={placeholder}
         onChangeText={onChangeText}
         style={globalStyles.inputContainer}
+        
+        {...props}
       />
     </FormControl>
   );

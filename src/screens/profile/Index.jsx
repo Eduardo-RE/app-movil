@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Box } from "native-base";
 
 const ProfileScreen = () => {
   return (
-    <View>
+    <Box safeArea>
       <Text>ProfileScreen</Text>
-    </View>
+    </Box>
   );
 };
 
-export default ProfileScreen
+export default ProfileScreen;
 
 const styles = StyleSheet.create({});

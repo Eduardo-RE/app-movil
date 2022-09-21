@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { Box } from "native-base";
 
 const AppointmentScreen = () => {
   return (
-    <View>
+    <Box safeArea>
       <Text>AppointmentScreen</Text>
-    </View>
+    </Box>
   );
 };
 

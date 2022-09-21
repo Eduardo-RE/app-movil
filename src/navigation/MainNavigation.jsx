@@ -7,8 +7,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/homeScreen/Index";
 import AppointmentScreen from "../screens/appointmentScreen/Index";
 import ProfileScreen from "../screens/profile/Index";
-import {MaterialIcons, Ionicons, FontAwesome5} from "@expo/vector-icons";
-
+import { MaterialIcons, Ionicons, FontAwesome5 } from "@expo/vector-icons";
 
 const height = Dimensions.get("window").height;
 
@@ -54,7 +53,7 @@ const HomeTabs = () => {
           marginTop: height * 0.02,
           bottom: height * 0.02,
           borderRadius: 20,
-          backgroundColor: "#121725",
+          backgroundColor: "#fff",
           borderTopWidth: 0,
           height: height * 0.1,
         },
@@ -71,17 +70,17 @@ const HomeTabs = () => {
         name="Inicio"
         component={HomeScreen}
         options={{
-          tabBarActiveTintColor: "#FF3B2F",
+          tabBarActiveTintColor: "#000",
           tabBarIcon: ({ color }) => (
             <Ionicons name="home-outline" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
-        name="Pedidos"
+        name="Citas"
         component={AppointmentScreen}
         options={{
-          tabBarActiveTintColor: "#FF3B2F",
+          tabBarActiveTintColor: "#000",
 
           tabBarIcon: ({ color }) => (
             <MaterialIcons name="list-alt" size={24} color={color} />
@@ -92,7 +91,7 @@ const HomeTabs = () => {
         name="Perfil"
         component={ProfileScreen}
         options={{
-          tabBarActiveTintColor: "#FF3B2F",
+          tabBarActiveTintColor: "#000",
 
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name="user-alt" size={24} color={color} />
