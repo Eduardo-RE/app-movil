@@ -6,11 +6,11 @@ import { NativeBaseProvider } from "native-base";
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
+    <NavigationContainer>
+      <NativeBaseProvider>
         <MainNavigation />
-      </NavigationContainer>
-    </NativeBaseProvider>
+      </NativeBaseProvider>
+    </NavigationContainer>
   );
 }
 

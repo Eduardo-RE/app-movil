@@ -8,9 +8,10 @@ import CategoryCard from "./CategoryCard";
 
 const HeroBanner = () => {
   return (
-    <>
+    <Box bg="white">
       <Heading m={2}>Doctores</Heading>
       <SearchBar />
+
       <FlatList
         data={categorys}
         renderItem={({ item }) => <CategoryCard name={item.name} />}
@@ -18,7 +19,7 @@ const HeroBanner = () => {
         p={2}
         showsHorizontalScrollIndicator={false}
       />
-    </>
+    </Box>
   );
 };
 

@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Flex, HStack, Pressable, Text, Badge, Spacer } from "native-base";
+import { Box, Pressable, Text } from "native-base";
 
 const CategoryCard = ({ name }) => {
   console.log(name);
 
   return (
-    <Box alignItems="center" ml={2}>
+    <Box alignItems="center" paddingX={3}>
       <Pressable maxW="96" minW={"30"}>
         {({ isHovered, isFocused, isPressed }) => {
           return (

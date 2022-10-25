@@ -77,7 +77,6 @@ const RegisterScreen = () => {
             color="coolGray.600"
             style={{
               color: "warmGray.200",
-              ...globalStyles.text,
             }}
           >
             ¿Ya tienes una cuenta?
@@ -86,7 +85,6 @@ const RegisterScreen = () => {
             style={{
               color: "indigo.500",
               fontWeight: "medium",
-              ...globalStyles.text,
             }}
             onPress={() => navigation.navigate("Login")}
           >

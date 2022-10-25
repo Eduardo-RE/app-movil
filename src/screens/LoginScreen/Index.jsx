@@ -5,6 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import CustomInput from "../../components/CustomInput";
 import { FormHook } from "../../hooks/formHook";
 import { globalStyles } from "../../styles/globalStyles";
+import { View } from "react-native";
 
 const LoginScreen = () => {
   const navigation = useNavigation();
@@ -60,18 +61,12 @@ const LoginScreen = () => {
           <Text marginY={2} textAlign={"center"} color="red.600">
             {errorMessage}
           </Text>
-          <Button onPress={onSubmit}>Iniciar sesion</Button>
+          <Button onPress={onSubmit}>
+            <Text>Iniciar sesion</Text>
+          </Button>
         </VStack>
-
         <HStack mt="6" justifyContent="center">
-          <Text
-            fontSize="sm"
-            color="coolGray.600"
-            style={{
-              color: "warmGray.200",
-              ...globalStyles.text,
-            }}
-          >
+          <Text fontSize="sm" color="coolGray.600">
             Soy un usuario nuevo.{" "}
           </Text>
           <Link
