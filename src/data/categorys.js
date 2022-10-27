@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    name: "Todo",
+    name: "Nutriologos",
   },
   {
     id: 2,

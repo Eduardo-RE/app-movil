@@ -5,7 +5,6 @@ import { useNavigation } from "@react-navigation/native";
 import CustomInput from "../../components/CustomInput";
 import { FormHook } from "../../hooks/formHook";
 import { globalStyles } from "../../styles/globalStyles";
-import { View } from "react-native";
 
 const LoginScreen = () => {
   const navigation = useNavigation();

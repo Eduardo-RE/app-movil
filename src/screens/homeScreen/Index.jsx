@@ -10,6 +10,7 @@ import DoctorCard from "../../components/DoctorCard";
 
 const HomeScreen = () => {
   //get width of screen
+
   return (
     <Box
       safeArea

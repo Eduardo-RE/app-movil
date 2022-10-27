@@ -7,9 +7,12 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/homeScreen/Index";
 import AppointmentScreen from "../screens/appointmentScreen/Index";
 import ProfileScreen from "../screens/profile/Index";
-import { MaterialIcons, Ionicons, FontAwesome5 } from "@expo/vector-icons";
-
-const height = Dimensions.get("window").height;
+import {
+  MaterialIcons,
+  Ionicons,
+  FontAwesome5,
+  Feather,
+} from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -48,37 +51,39 @@ const HomeTabs = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          position: "absolute",
-          margin: height * 0.01,
-          marginTop: height * 0.02,
-          bottom: height * 0.02,
-          borderRadius: 20,
           backgroundColor: "#fff",
-          borderTopWidth: 0,
-          height: height * 0.1,
+          borderTopWidth: 1,
         },
         tabBarIconStyle: {
           color: "#fff",
-          top: Platform.OS === "ios" ? height * 0.01 : 0.001,
         },
-        tabBarLabelStyle: {
-          top: Platform.OS === "android" ? height * -0.02 : height * 0.0011,
-        },
+        tabBarLabelStyle: {},
       }}
     >
       <Tab.Screen
-        name="Inicio"
+        name="Explorar"
         component={HomeScreen}
         options={{
           tabBarActiveTintColor: "#000",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home-outline" size={24} color={color} />
+            <Ionicons name="search" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Favoritos"
+        component={AppointmentScreen}
+        options={{
+          tabBarActiveTintColor: "#000",
+
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons name="favorite-border" size={24} color={color} />
           ),
         }}
       />
       <Tab.Screen
         name="Citas"
-        component={AppointmentScreen}
+        component={ProfileScreen}
         options={{
           tabBarActiveTintColor: "#000",
 
@@ -88,13 +93,24 @@ const HomeTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Perfil"
+        name="Bandeja de entrada"
         component={ProfileScreen}
         options={{
           tabBarActiveTintColor: "#000",
 
           tabBarIcon: ({ color }) => (
-            <FontAwesome5 name="user-alt" size={24} color={color} />
+            <Feather name="message-square" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Iniciar sesión"
+        component={ProfileScreen}
+        options={{
+          tabBarActiveTintColor: "#000",
+
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="md-person-circle-outline" size={24} color={color} />
           ),
         }}
       />

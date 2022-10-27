@@ -10,25 +10,15 @@ const CategoryCard = ({ name }) => {
         {({ isHovered, isFocused, isPressed }) => {
           return (
             <Box
-              bg={
-                isPressed
-                  ? "coolGray.200"
-                  : isHovered
-                  ? "coolGray.200"
-                  : "coolGray.100"
-              }
               style={{
                 transform: [
                   {
                     scale: isPressed ? 0.96 : 1,
                   },
                 ],
+                borderBottomWidth: 1,
+                borderColor: "gray.200",
               }}
-              p="5"
-              rounded="10"
-              shadow={3}
-              borderWidth="1"
-              borderColor="coolGray.300"
             >
               <Text color="coolGray.800" fontWeight="medium" fontSize="md">
                 {name}

@@ -1,15 +1,17 @@
 import React from "react";
 import { Heading, Icon, Input, VStack } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Dimensions } from "react-native";
 
 const SearchBar = () => {
+  const width = Dimensions.get("window").width;
   return (
-    <VStack w="100%" space={5} alignSelf="center">
+    <VStack width={width - 20} space={5} alignSelf="center">
       <Input
-        placeholder="Buscar..."
+        placeholder="Que estas buscando?"
         m={2}
-        borderRadius="10"
-        py="4"
+        borderRadius="50"
+        py="2"
         px="1"
         fontSize="14"
         InputLeftElement={

@@ -3,7 +3,6 @@ import { Box, Button, Center, Text, VStack, HStack, Link } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import CustomInput from "../../components/CustomInput";
 import { FormHook } from "../../hooks/formHook";
-import { globalStyles } from "../../styles/globalStyles";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();

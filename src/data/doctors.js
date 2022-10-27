@@ -8,6 +8,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Popular",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 5,
@@ -38,6 +41,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 6,
@@ -48,6 +52,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 7,
@@ -58,6 +63,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 8,
@@ -68,6 +74,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 9,
@@ -78,6 +85,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 10,
@@ -88,6 +96,7 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
   {
     id: 11,
@@ -98,5 +107,6 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
+    status: "Nuevo",
   },
 ];
