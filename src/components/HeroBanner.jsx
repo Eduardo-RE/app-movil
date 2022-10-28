@@ -1,12 +1,10 @@
 import React from "react";
-import { Box, FlatList, Heading, Text } from "native-base";
+import { Box, FlatList } from "native-base";
 import SearchBar from "./SearchBar";
 import categorys from "../data/categorys";
 import CategoryCard from "./CategoryCard";
-import { Dimensions } from "react-native";
-const HeroBanner = () => {
-  const width = Dimensions.get("window").width;
 
+const HeroBanner = () => {
   return (
     <Box bg="white" shadow={2}>
       <SearchBar />

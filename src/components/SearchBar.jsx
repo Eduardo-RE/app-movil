@@ -2,11 +2,18 @@ import React from "react";
 import { Heading, Icon, Input, VStack } from "native-base";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const SearchBar = () => {
   const width = Dimensions.get("window").width;
+  const insets = useSafeAreaInsets();
   return (
-    <VStack width={width - 20} space={5} alignSelf="center">
+    <VStack
+      width={width - 20}
+      space={5}
+      alignSelf="center"
+      marginTop={insets.top}
+    >
       <Input
         placeholder="Que estas buscando?"
         m={2}

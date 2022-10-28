@@ -1,20 +1,21 @@
 import React from "react";
-import {
-  Box,
-  Text,
-  Image,
-  Pressable,
-  AspectRatio,
-  VStack,
-  HStack,
-} from "native-base";
-import { StyleSheet, Dimensions } from "react-native";
+import { Box, Text, Image, VStack, HStack } from "native-base";
+import { StyleSheet, Dimensions, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const DoctorCard = ({ doctor }) => {
+  const navigation = useNavigation();
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
   return (
-    <Pressable width={width - 20} justifyContent="center" alignItems={"center"}>
+    <TouchableOpacity
+      style={{
+        width: width - 20,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      onPress={() => navigation.navigate("ClientDetails", { doctor })}
+    >
       <Box bg="white" rounded="lg" mt={3}>
         <VStack space={2}>
           <Image
@@ -39,12 +40,16 @@ const DoctorCard = ({ doctor }) => {
             </VStack>
             <Text fontSize={"sm"}>
               {"\u2605"}
-              {doctor.status}
+              {doctor.rating === 0
+                ? "Nuevo"
+                : doctor.rating > 4.9
+                ? "Popular"
+                : doctor.rating}
             </Text>
           </HStack>
         </VStack>
       </Box>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

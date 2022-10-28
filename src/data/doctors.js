@@ -8,7 +8,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 0,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 2,
@@ -19,7 +33,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Popular",
+    rating: 5.0,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 3,
@@ -30,7 +58,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 4.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 5,
@@ -41,7 +83,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 6,
@@ -52,7 +108,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 7,
@@ -63,7 +133,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 8,
@@ -74,7 +158,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 9,
@@ -85,7 +183,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 10,
@@ -96,7 +208,21 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
   {
     id: 11,
@@ -107,6 +233,20 @@ export default [
     email: "",
     profilePicture: "",
     price: 100000,
-    status: "Nuevo",
+    rating: 3.9,
+    reviews: [
+      {
+        id: 1,
+        name: "John Doe",
+        rating: 5.0,
+        comment: "Excelente doctor, muy profesional y atento",
+      },
+      {
+        id: 2,
+        name: "Jane Doe",
+        rating: 4.0,
+        comment: "Muy buena atención, pero el doctor no me dio mucha confianza",
+      },
+    ],
   },
 ];

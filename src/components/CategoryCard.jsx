@@ -2,10 +2,8 @@ import React from "react";
 import { Box, Pressable, Text } from "native-base";
 
 const CategoryCard = ({ name }) => {
-  console.log(name);
-
   return (
-    <Box alignItems="center" paddingX={3}>
+    <Box paddingX={3}>
       <Pressable maxW="96" minW={"30"}>
         {({ isHovered, isFocused, isPressed }) => {
           return (

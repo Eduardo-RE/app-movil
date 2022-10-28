@@ -7,12 +7,9 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/homeScreen/Index";
 import AppointmentScreen from "../screens/appointmentScreen/Index";
 import ProfileScreen from "../screens/profile/Index";
-import {
-  MaterialIcons,
-  Ionicons,
-  FontAwesome5,
-  Feather,
-} from "@expo/vector-icons";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
+import ClientDeailScreen from "../screens/ClientDetailScreen/Index";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,7 +59,7 @@ const HomeTabs = () => {
     >
       <Tab.Screen
         name="Explorar"
-        component={HomeScreen}
+        component={HomeStackNavigator}
         options={{
           tabBarActiveTintColor: "#000",
           tabBarIcon: ({ color }) => (
@@ -119,3 +116,38 @@ const HomeTabs = () => {
 };
 
 export default MainNavigation;
+
+const HomeStack = createNativeStackNavigator();
+
+const HomeStackNavigator = ({ navigation, route }) => {
+  React.useEffect(() => {
+    const tabHiddenRoutes = ["ClientDetails", "ClientDetails"];
+
+    if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route))) {
+      navigation.setOptions({
+        headerShown: false,
+        tabBarStyle: { position: "absolute", bottom: -1000000 },
+        tabBarIconStyle: {},
+        tabBarLabelStyle: {},
+      });
+    } else {
+      navigation.setOptions({
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: "#fff",
+          borderTopWidth: 1,
+        },
+        tabBarIconStyle: {
+          color: "#fff",
+        },
+        tabBarLabelStyle: {},
+      });
+    }
+  }, [navigation, route]);
+  return (
+    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStack.Screen name="Home" component={HomeScreen} />
+      <HomeStack.Screen name="ClientDetails" component={ClientDeailScreen} />
+    </HomeStack.Navigator>
+  );
+};
