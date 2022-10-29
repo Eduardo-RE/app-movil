@@ -1,7 +1,6 @@
-import { Dimensions, Text, View } from "react-native";
 import React from "react";
-import LoginScreen from "../screens/LoginScreen/Index";
-import RegisterScreen from "../screens/RegisterScreen/Index";
+import LoginScreen from "../screens/loginScreen/Index";
+import RegisterScreen from "../screens/registerScreen/Index";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/homeScreen/Index";
@@ -9,7 +8,9 @@ import AppointmentScreen from "../screens/appointmentScreen/Index";
 import ProfileScreen from "../screens/profile/Index";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
-import ClientDeailScreen from "../screens/ClientDetailScreen/Index";
+import ClientDeailScreen from "../screens/clientDetailScreen/Index";
+import MessagesScreen from "../screens/messagesScreen/Index";
+import FavoritesScreen from "../screens/favoritesScreen/Index";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +21,6 @@ const MainNavigation = () => {
         headerShown: false,
       }}
     >
-      <Stack.Screen name="auth" component={AuthStackNavigator} />
       <Stack.Screen name="home" component={HomeTabs} />
     </Stack.Navigator>
   );
@@ -33,9 +33,6 @@ const AuthStackNavigator = () => {
     <AuthStack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
-      {/* <Stack.Screen name="ConfirmEmail" component={ConfirmEmailScreen} />
-      <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-      <Stack.Screen name="NewPassword" component={NewPasswordScreen} /> */}
     </AuthStack.Navigator>
   );
 };
@@ -69,7 +66,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name="Favoritos"
-        component={AppointmentScreen}
+        component={FavoritesScreen}
         options={{
           tabBarActiveTintColor: "#000",
 
@@ -80,7 +77,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name="Citas"
-        component={ProfileScreen}
+        component={AppointmentScreen}
         options={{
           tabBarActiveTintColor: "#000",
 
@@ -91,7 +88,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name="Bandeja de entrada"
-        component={ProfileScreen}
+        component={MessagesScreen}
         options={{
           tabBarActiveTintColor: "#000",
 

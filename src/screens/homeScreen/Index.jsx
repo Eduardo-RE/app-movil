@@ -14,7 +14,7 @@ const HomeScreen = () => {
         ListHeaderComponent={() => <HeroBanner />}
         data={doctors}
         renderItem={({ item }) => (
-          <Center>
+          <Center bgColor={"white"}>
             <DoctorCard doctor={item} />
           </Center>
         )}

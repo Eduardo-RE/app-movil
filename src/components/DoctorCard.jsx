@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Text, Image, VStack, HStack } from "native-base";
 import { StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { formatCurrency } from "../utils";
 
 const DoctorCard = ({ doctor }) => {
   const navigation = useNavigation();
@@ -13,6 +14,7 @@ const DoctorCard = ({ doctor }) => {
         width: width - 20,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: "#fff",
       }}
       onPress={() => navigation.navigate("ClientDetails", { doctor })}
     >
@@ -36,7 +38,7 @@ const DoctorCard = ({ doctor }) => {
               </Text>
               <Text fontSize={"sm"}>{doctor.specialty}</Text>
               <Text fontSize={"sm"}>{doctor.name}</Text>
-              <Text fontSize={"sm"}>{doctor.price}</Text>
+              <Text fontSize={"sm"}>{formatCurrency(doctor.price, "MXN")}</Text>
             </VStack>
             <Text fontSize={"sm"}>
               {"\u2605"}
