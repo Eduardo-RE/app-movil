@@ -177,13 +177,15 @@ const ClientDeailScreen = () => {
         </Box>
       </ScrollView>
       <Box
-        position={"fixed"}
-        bottom={0}
-        left={0}
-        right={0}
-        backgroundColor={"#fafbfd"}
-        justifyContent={"center"}
-        alignItems={"center"}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          backgroundColor: "#fff",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
         <HStack justifyContent={"center"} alignItems={"center"}>
           <HStack>

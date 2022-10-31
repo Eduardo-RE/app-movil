@@ -12,7 +12,7 @@ const SearchBar = () => {
       width={width - 20}
       space={5}
       alignSelf="center"
-      marginTop={insets.top}
+      marginTop={insets.top - 10}
     >
       <Input
         placeholder="Que estas buscando?"

@@ -7,7 +7,7 @@ const ProfileScreen = () => {
   return (
     <Box safeArea bgColor="white" flex={1} paddingX={5}>
       <Box mt={height * 0.05}>
-        <Text fontWeight={"semibold"} fontSize="2xl" mb={2}>
+        <Text fontWeight={"semibold"} fontSize="3xl" mb={2}>
           Perfil
         </Text>
         <Text fontWeight={"thin "}>
