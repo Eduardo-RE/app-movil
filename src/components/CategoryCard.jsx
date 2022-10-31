@@ -14,11 +14,16 @@ const CategoryCard = ({ name }) => {
                     scale: isPressed ? 0.96 : 1,
                   },
                 ],
-                borderBottomWidth: 1,
-                borderColor: "gray.200",
+                // borderBottomWidth: 1,
+                // borderColor: "gray.200",
               }}
             >
-              <Text color="coolGray.800" fontWeight="medium" fontSize="md">
+              <Text
+                color="coolGray.800"
+                fontWeight="medium"
+                fontSize="md"
+                mb={2}
+              >
                 {name}
               </Text>
             </Box>

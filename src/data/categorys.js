@@ -11,8 +11,4 @@ export default [
     id: 3,
     name: "Doctores",
   },
-  {
-    id: 4,
-    name: "Restaurantes",
-  },
 ];

@@ -24,7 +24,7 @@ const ClientDeailScreen = () => {
   const navigation = useNavigation();
   const insets = useSafeAreaInsets();
   const route = useRoute();
-
+  const { height } = Dimensions.get("window");
   const { doctor } = route.params;
 
   return (
@@ -178,7 +178,7 @@ const ClientDeailScreen = () => {
       </ScrollView>
       <Box
         style={{
-          position: "absolute",
+          position: "relative",
           bottom: 0,
           left: 0,
           right: 0,
@@ -195,9 +195,9 @@ const ClientDeailScreen = () => {
             <Text fontWeight={"thin"}> consulta</Text>
           </HStack>
           <Button
-            onPress={() => navigation.navigate("BookAppointmentScreen")}
+            onPress={() => console.log("pressed")}
             variant="solid"
-            backgroundColor={"#000"}
+            colorScheme={"primary"}
             size="lg"
             width={Dimensions.get("window").width / 3}
             height={50}

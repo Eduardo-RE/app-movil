@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React from "react";
-import { Box } from "native-base";
+import { Box, Text } from "native-base";
 import BlockScreen from "../blockScreen/Index";
 
 const AppointmentScreen = () => {
@@ -9,7 +9,12 @@ const AppointmentScreen = () => {
   return (
     <>
       {loggedIn ? (
-        <Box safeArea></Box>
+        <Box safeArea flex={1} bgColor={"white"}>
+          <Text fontSize={"2xl"} fontWeight={"bold"}>
+            {" "}
+            Citas
+          </Text>
+        </Box>
       ) : (
         <BlockScreen
           ScreenName={"Viajes"}
