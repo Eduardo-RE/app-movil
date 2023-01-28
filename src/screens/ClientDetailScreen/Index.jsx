@@ -98,12 +98,12 @@ const ClientDeailScreen = () => {
         </AspectRatio>
         <Box padding={5}>
           <Text fontSize={"2xl"} fontWeight={"bold"}>
-            {doctor.name} - {doctor.specialty}
+            {doctor.nombre}
           </Text>
           <HStack space={1}>
             <Text>
               {"\u2605 "}
-              {doctor.rating === 0
+              {doctor.rating === "Nuevo"
                 ? "Nuevo"
                 : doctor.rating > 4.9
                 ? "Popular"
@@ -112,7 +112,10 @@ const ClientDeailScreen = () => {
             <Text>{"\u2022"}</Text>
             <TouchableOpacity>
               <Text fontWeight={"medium"} underline>
-                {doctor?.reviews.length} evaluaciones
+                {doctor.calificacion === "Nuevo" || doctor.calificacion === null
+                  ? 0
+                  : doctor?.reviews.length}{" "}
+                evaluaciones
               </Text>
             </TouchableOpacity>
           </HStack>
@@ -122,37 +125,38 @@ const ClientDeailScreen = () => {
             Acerca de
           </Text>
           <Text marginTop={2} fontSize={"md"} fontWeight={"medium"}>
-            {doctor.about}
+            {doctor.descripcion}
           </Text>
           <Divider marginTop={5} />
           <Text marginTop={5} fontSize={"lg"} fontWeight={"bold"}>
             Servicios
           </Text>
-          {doctor?.services.map((service) => (
-            <HStack
-              marginTop={2}
-              space={2}
-              alignItems={"center"}
-              key={service.id}
-            >
-              <Box
-                style={{
-                  width: 20,
-                  height: 20,
-                  borderRadius: 50,
-                  backgroundColor: "#F2F2F2",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
+          {/* {doctor.servicios &&
+            doctor?.services.map((service) => (
+              <HStack
+                marginTop={2}
+                space={2}
+                alignItems={"center"}
+                key={service.id}
               >
-                <Ionicons name="ios-checkmark" size={12} color="black" />
-              </Box>
-              <Text fontSize={"md"} fontWeight={"medium"}>
-                {service.name}
-              </Text>
-            </HStack>
-          ))}
+                <Box
+                  style={{
+                    width: 20,
+                    height: 20,
+                    borderRadius: 50,
+                    backgroundColor: "#F2F2F2",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Ionicons name="ios-checkmark" size={12} color="black" />
+                </Box>
+                <Text fontSize={"md"} fontWeight={"medium"}>
+                  {service.name}
+                </Text>
+              </HStack>
+            ))} */}
           <Button marginTop={5} variant={"solid"} colorScheme={"primary"}>
             Ver más
           </Button>
@@ -162,16 +166,21 @@ const ClientDeailScreen = () => {
           <Text marginTop={5} fontSize={"lg"} fontWeight={"bold"}>
             Dónde nos ubicamos
           </Text>
+          <Text marginTop={2} fontSize={"md"} fontWeight={"medium"}>
+            {doctor.ubicacion}
+          </Text>
           <Divider marginTop={5} />
           <Text marginTop={5} fontSize={"lg"} fontWeight={"bold"}>
             {"\u2605 "}
-            {doctor.rating === 0
+            {doctor.calificacion === "Nuevo"
               ? "Nuevo"
-              : doctor.rating > 4.9
+              : doctor.calificacion > 4.9
               ? "Popular"
-              : doctor.rating}
+              : doctor.calificacion}
             {" \u2022 "}
-            {doctor?.reviews.length} evaluaciones
+            {doctor.calificacion === "Nuevo" || doctor.calificacion === null
+              ? 0
+              : doctor?.reviews.length}{" "}
           </Text>
           <Divider marginTop={5} />
         </Box>
@@ -189,9 +198,7 @@ const ClientDeailScreen = () => {
       >
         <HStack justifyContent={"center"} alignItems={"center"}>
           <HStack>
-            <Text fontWeight={"bold"}>
-              {formatCurrency(doctor.price, "MXN")}
-            </Text>
+            <Text fontWeight={"bold"}>{formatCurrency(1000, "MXN")}</Text>
             <Text fontWeight={"thin"}> consulta</Text>
           </HStack>
           <Button

@@ -2,7 +2,9 @@ import { Dimensions, TouchableOpacity } from "react-native";
 import React from "react";
 import { Box, Button, Divider, HStack, Image, Text, VStack } from "native-base";
 import { Ionicons, Feather } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const ProfileScreen = () => {
+  const navigation = useNavigation();
   const { width, height } = Dimensions.get("window");
   return (
     <Box safeArea bgColor="white" flex={1} paddingX={5}>
@@ -15,12 +17,16 @@ const ProfileScreen = () => {
         </Text>
       </Box>
       <VStack space={4}>
-        <Button mt={height * 0.05} colorScheme="primary">
+        <Button
+          mt={height * 0.05}
+          colorScheme="primary"
+          onPress={() => navigation.navigate("Login")}
+        >
           Iniciar sesión
         </Button>
         <HStack space={1}>
           <Text fontSize={"sm"}>¿No tienes una cuenta?</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
             <Text fontSize={"sm"} underline>
               Registrate
             </Text>

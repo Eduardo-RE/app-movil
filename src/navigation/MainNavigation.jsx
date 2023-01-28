@@ -31,6 +31,7 @@ const AuthStack = createNativeStackNavigator();
 const AuthStackNavigator = () => {
   return (
     <AuthStack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Profile" component={ProfileScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
     </AuthStack.Navigator>
@@ -99,7 +100,7 @@ const HomeTabs = () => {
       />
       <Tab.Screen
         name="Iniciar sesión"
-        component={ProfileScreen}
+        component={AuthStackNavigator}
         options={{
           tabBarActiveTintColor: "#000",
 

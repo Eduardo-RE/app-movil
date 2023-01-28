@@ -34,15 +34,15 @@ const DoctorCard = ({ doctor }) => {
           <HStack justifyContent={"space-between"}>
             <VStack>
               <Text color={"#000"} fontWeight="bold" fontSize={"sm"}>
-                {doctor.address}
+                {doctor.ubicacion}
               </Text>
-              <Text fontSize={"sm"}>{doctor.specialty}</Text>
-              <Text fontSize={"sm"}>{doctor.name}</Text>
-              <Text fontSize={"sm"}>{formatCurrency(doctor.price, "MXN")}</Text>
+              <Text fontSize={"sm"}>{doctor.descripcion}</Text>
+              <Text fontSize={"sm"}>{doctor.nombre}</Text>
+              <Text fontSize={"sm"}>{formatCurrency(1000, "MXN")}</Text>
             </VStack>
             <Text fontSize={"sm"}>
               {"\u2605"}
-              {doctor.rating === 0
+              {doctor.rating === "Nuevo"
                 ? "Nuevo"
                 : doctor.rating > 4.9
                 ? "Popular"

@@ -14,6 +14,29 @@ const RegisterScreen = () => {
   );
 
   const onSubmit = () => {
+    // validate forms
+    if (
+      form.nombre === "" ||
+      form.apellido === "" ||
+      form.telefono === "" ||
+      form.mail === "" ||
+      form.password === "" ||
+      form.confirmPassword === ""
+    ) {
+      setErrorMessage("Todos los campos son obligatorios");
+      return;
+    }
+
+    if (!emailRegex.test(form.mail)) {
+      setErrorMessage("El correo electronico no es valido");
+      return;
+    }
+
+    if (form.password !== form.confirmPassword) {
+      setErrorMessage("Las contraseñas no coinciden");
+      return;
+    }
+
     console.log(form);
   };
 
@@ -36,10 +59,10 @@ const RegisterScreen = () => {
             }}
           />
           <CustomInput
-            label="Edad"
-            type={"text"}
+            label="Telefono"
+            type={"tel"}
             onChangeText={(value) => {
-              onChange({ name: "edad", value });
+              onChange({ name: "telefono", value });
             }}
           />
           <CustomInput

@@ -1,8 +1,10 @@
 import React from "react";
 import { Box, Button, Text } from "native-base";
 import { Dimensions } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const BlockScreen = ({ ScreenName, header, customMessage }) => {
+  const navigation = useNavigation();
   const { width } = Dimensions.get("window");
   return (
     <Box
@@ -26,6 +28,7 @@ const BlockScreen = ({ ScreenName, header, customMessage }) => {
         variant={"solid"}
         colorScheme={"primary"}
         width={width * 0.3}
+        onPress={() => navigation.navigate("Login")}
       >
         Iniciar sesión
       </Button>
