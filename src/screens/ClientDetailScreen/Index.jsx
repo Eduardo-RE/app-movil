@@ -19,6 +19,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { EvilIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { formatCurrency } from "../../utils";
+import ReviewCard from "../../components/ReviewCard";
+import { FlatList } from "react-native-gesture-handler";
 
 const ClientDeailScreen = () => {
   const navigation = useNavigation();
@@ -178,10 +180,37 @@ const ClientDeailScreen = () => {
               ? "Popular"
               : doctor.calificacion}
             {" \u2022 "}
-            {doctor.calificacion === "Nuevo" || doctor.calificacion === null
-              ? 0
-              : doctor?.reviews.length}{" "}
+            {doctor.calificacion === "Nuevo" ||
+              (doctor.calificacion === null && 0)}
+            {doctor?.reviews?.length}
           </Text>
+          <FlatList
+            data={doctor?.reviews}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => <ReviewCard review={item} />}
+            horizontal
+          />
+          <TouchableOpacity
+            style={{
+              borderColor: "#0000000",
+              borderWidth: 1,
+              borderRadius: 10,
+              padding: 15,
+              marginTop: 16,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "#000000",
+                fontSize: 16,
+                fontWeight: "bold",
+              }}
+            >
+              Mostrar las {doctor?.reviews?.length} evaluaciones
+            </Text>
+          </TouchableOpacity>
           <Divider marginTop={5} />
         </Box>
       </ScrollView>

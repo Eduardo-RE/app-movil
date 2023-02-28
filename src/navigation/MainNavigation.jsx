@@ -1,6 +1,6 @@
 import React from "react";
-import LoginScreen from "../screens/loginScreen/Index";
-import RegisterScreen from "../screens/registerScreen/Index";
+import LoginScreen from "../screens/LoginScreen/Index";
+import RegisterScreen from "../screens/RegisterScreen/Index";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "../screens/homeScreen/Index";
@@ -8,7 +8,7 @@ import AppointmentScreen from "../screens/appointmentScreen/Index";
 import ProfileScreen from "../screens/profile/Index";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
-import ClientDeailScreen from "../screens/clientDetailScreen/Index";
+import ClientDeailScreen from "../screens/ClientDetailScreen/Index";
 import MessagesScreen from "../screens/messagesScreen/Index";
 import FavoritesScreen from "../screens/favoritesScreen/Index";
 
