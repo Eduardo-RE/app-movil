@@ -8,6 +8,7 @@ import {
   browserSessionPersistence,
   setPersistence,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -23,7 +24,7 @@ const firebaseConfig = {
 const firebaseapp = firebase.initializeApp(firebaseConfig);
 const firestore = getFirestore(firebaseapp);
 const database = getDatabase(firebaseapp);
-const auth = firebase.auth();
+const auth = firebase.auth(firebaseapp);
 const storage = getStorage(firebaseapp);
 const authG = getAuth(firebaseapp);
 
@@ -37,4 +38,5 @@ export {
   browserSessionPersistence,
   setPersistence,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 };

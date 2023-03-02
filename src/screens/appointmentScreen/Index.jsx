@@ -2,9 +2,19 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Box, Text } from "native-base";
 import BlockScreen from "../blockScreen/Index";
+import { firebaseapp } from "../../utils/firebase";
+import { getAuth } from "firebase/auth";
 
 const AppointmentScreen = () => {
-  const loggedIn = false;
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  const auth = getAuth(firebaseapp);
+
+  React.useEffect(() => {
+    console.log("authG.currentUser", auth.currentUser);
+    if (auth.currentUser) {
+      setLoggedIn(true);
+    }
+  }, []);
 
   return (
     <>

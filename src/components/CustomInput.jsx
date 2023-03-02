@@ -20,7 +20,6 @@ const CustomInput = ({ label, type, placeholder, onChangeText, ...props }) => {
         placeholder={placeholder}
         onChangeText={onChangeText}
         style={globalStyles.inputContainer}
-        
         {...props}
       />
     </FormControl>

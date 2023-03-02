@@ -3,17 +3,31 @@ import { Box, Button, Center, Text, VStack, HStack, Link } from "native-base";
 import { useNavigation } from "@react-navigation/native";
 import CustomInput from "../../components/CustomInput";
 import { FormHook } from "../../hooks/formHook";
+import { ref, set } from "firebase/database";
+import {
+  auth,
+  database,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "../../utils/firebase";
 
 const RegisterScreen = () => {
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+
   const navigation = useNavigation();
+
   const { form, onChange } = FormHook();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const emailRegex = new RegExp(
-    "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
-  );
+  // const emailRegex = new RegExp(
+  //   "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"
+  // );
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     // validate forms
     if (
       form.nombre === "" ||
@@ -27,17 +41,32 @@ const RegisterScreen = () => {
       return;
     }
 
-    if (!emailRegex.test(form.mail)) {
-      setErrorMessage("El correo electronico no es valido");
-      return;
-    }
+    // if (!emailRegex.test(form.mail)) {
+    //   setErrorMessage("El correo electronico no es valido");
+    //   return;
+    // }
 
     if (form.password !== form.confirmPassword) {
       setErrorMessage("Las contraseñas no coinciden");
       return;
     }
-
-    console.log(form);
+    await createUserWithEmailAndPassword(auth, email, password)
+      .then((authUser) =>
+        set(ref(database, "clientes/ " + authUser.user.uid), {
+          id: authUser.user.uid,
+          nombre: name,
+          apellidos: lastName,
+          correo: email,
+          contraseña: password,
+          telefono: phone,
+          calificacion: "Nuevo",
+        }).then(() =>
+          signInWithEmailAndPassword(auth, email, password).then(() =>
+            navigation.navigate("Home")
+          )
+        )
+      )
+      .catch((err) => alert(`error create user ${err.message}`));
   };
 
   return (
@@ -47,50 +76,37 @@ const RegisterScreen = () => {
           <CustomInput
             label="Nombre(s)"
             type={"text"}
-            onChangeText={(value) => {
-              onChange({ name: "nombre", value });
-            }}
+            onChangeText={(value) => setName(value)}
           />
           <CustomInput
             label="Apellidos"
             type={"text"}
-            onChangeText={(value) => {
-              onChange({ name: "apellido", value });
-            }}
+            onChangeText={(value) => setLastName(value)}
           />
           <CustomInput
             label="Telefono"
             type={"tel"}
-            onChangeText={(value) => {
-              onChange({ name: "telefono", value });
-            }}
+            onChangeText={(value) => setPhone(value)}
           />
           <CustomInput
             label="Correo electronico"
             type={"mail"}
-            onChangeText={(value) => {
-              onChange({ name: "mail", value });
-            }}
+            autoCapitalize="none"
+            onChangeText={(value) => setEmail(value)}
           />
           <CustomInput
             label="Contraseña"
             type={"password"}
-            onChangeText={(value) => {
-              onChange({ name: "password", value });
-            }}
-          />
-          <CustomInput
-            label="Confirmar contraseña"
-            type={"password"}
-            onChangeText={(value) => {
-              onChange({ name: "confirmPassword", value });
-            }}
+            autoCapitalize="none"
+            onChangeText={(value) => setPassword(value)}
           />
 
           <Text marginY={2} textAlign={"center"} color="red.600">
             {errorMessage}
           </Text>
-          <Button onPress={onSubmit}>Registrarme</Button>
+          <Button bg="green.500" onPress={onSubmit}>
+            Registrarme
+          </Button>
         </VStack>
 
         <HStack mt="6" justifyContent="center">
@@ -107,6 +123,7 @@ const RegisterScreen = () => {
             style={{
               color: "indigo.500",
               fontWeight: "medium",
+              cursor: "pointer",
             }}
             onPress={() => navigation.navigate("Login")}
           >

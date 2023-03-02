@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Text } from "native-base";
+import { Box, Button, Text, Link } from "native-base";
 import { Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
@@ -23,15 +23,17 @@ const BlockScreen = ({ ScreenName, header, customMessage }) => {
       <Text fontSize={"md"} fontWeight="light" mt={1}>
         {customMessage}
       </Text>
-      <Button
-        mt={10}
-        variant={"solid"}
-        colorScheme={"primary"}
-        width={width * 0.3}
-        onPress={() => navigation.navigate("Login")}
-      >
-        Iniciar sesión
-      </Button>
+      <Link onPress={() => navigation.navigate("Login")}>
+        <Button
+          bg="green.500"
+          mt={10}
+          variant={"solid"}
+          colorScheme={"primary"}
+          width={width * 0.3}
+        >
+          Iniciar sesión
+        </Button>
+      </Link>
     </Box>
   );
 };
