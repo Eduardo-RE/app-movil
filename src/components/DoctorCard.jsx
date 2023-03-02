@@ -8,6 +8,15 @@ const DoctorCard = ({ doctor }) => {
   const navigation = useNavigation();
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
+
+  const allReviews = doctor.reviews
+    ? Object.keys(doctor?.reviews).map((key) => doctor?.reviews[key])
+    : [];
+  const allRatings = allReviews.reduce(
+    (accum, object) => accum + object.rating / allReviews.length,
+    0
+  );
+
   return (
     <TouchableOpacity
       style={{
@@ -31,7 +40,13 @@ const DoctorCard = ({ doctor }) => {
             rounded="lg"
           />
 
-          <HStack justifyContent={"space-between"}>
+          <HStack
+            justifyContent={"space-between"}
+            style={{
+              width: width - 50,
+              padding: 16,
+            }}
+          >
             <VStack>
               <Text color={"#000"} fontWeight="bold" fontSize={"sm"}>
                 {doctor.ubicacion}
@@ -42,11 +57,7 @@ const DoctorCard = ({ doctor }) => {
             </VStack>
             <Text fontSize={"sm"}>
               {"\u2605"}
-              {doctor.rating === "Nuevo"
-                ? "Nuevo"
-                : doctor.rating > 4.9
-                ? "Popular"
-                : doctor.rating}
+              {allRatings.toFixed(2)}
             </Text>
           </HStack>
         </VStack>

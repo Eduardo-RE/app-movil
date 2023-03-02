@@ -23,12 +23,12 @@ const ReviewCard = ({ review }) => {
         />
         <View style={styles.profileText}>
           <Text style={{ marginBottom: 8, fontWeight: "bold", fontSize: 18 }}>
-            {review.nombreUsuario}
+            {review.nameUser}
           </Text>
           <Text style={{ fontSize: 14, fontWeight: "400" }}>
             {review.fecha}
           </Text>
-          <Text>{renderStars(review.rating)}</Text>
+          <Text>{renderStars(review?.rating)}</Text>
         </View>
       </View>
       <View style={styles.reviewTextContainer}>
