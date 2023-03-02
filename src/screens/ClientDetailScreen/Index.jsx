@@ -19,6 +19,8 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { EvilIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { formatCurrency } from "../../utils";
+import ReviewCard from "../../components/ReviewCard";
+import { FlatList } from "react-native-gesture-handler";
 
 const ClientDeailScreen = () => {
   const navigation = useNavigation();
@@ -26,6 +28,13 @@ const ClientDeailScreen = () => {
   const route = useRoute();
   const { height } = Dimensions.get("window");
   const { doctor } = route.params;
+  const allReviews = doctor.reviews
+    ? Object.keys(doctor?.reviews).map((key) => doctor?.reviews[key])
+    : [];
+  const allRatings = allReviews.reduce(
+    (accum, object) => accum + object.rating / allReviews.length,
+    0
+  );
 
   return (
     <Box bgColor={"white"} flex={1}>
@@ -103,19 +112,12 @@ const ClientDeailScreen = () => {
           <HStack space={1}>
             <Text>
               {"\u2605 "}
-              {doctor.rating === "Nuevo"
-                ? "Nuevo"
-                : doctor.rating > 4.9
-                ? "Popular"
-                : doctor.rating}
+              {allRatings.toFixed(2)}
             </Text>
             <Text>{"\u2022"}</Text>
             <TouchableOpacity>
               <Text fontWeight={"medium"} underline>
-                {doctor.calificacion === "Nuevo" || doctor.calificacion === null
-                  ? 0
-                  : doctor?.reviews.length}{" "}
-                evaluaciones
+                {allReviews?.length} evaluaciones
               </Text>
             </TouchableOpacity>
           </HStack>
@@ -172,16 +174,39 @@ const ClientDeailScreen = () => {
           <Divider marginTop={5} />
           <Text marginTop={5} fontSize={"lg"} fontWeight={"bold"}>
             {"\u2605 "}
-            {doctor.calificacion === "Nuevo"
-              ? "Nuevo"
-              : doctor.calificacion > 4.9
-              ? "Popular"
-              : doctor.calificacion}
+            {allRatings.toFixed(2)}
             {" \u2022 "}
-            {doctor.calificacion === "Nuevo" || doctor.calificacion === null
-              ? 0
-              : doctor?.reviews.length}{" "}
+            {doctor.calificacion === "Nuevo" ||
+              (doctor.calificacion === null && 0)}
+            {allReviews.length} evaluaciones
           </Text>
+          <FlatList
+            data={allReviews.slice(0, 3)}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => <ReviewCard review={item} />}
+            horizontal
+          />
+          <TouchableOpacity
+            style={{
+              borderColor: "#0000000",
+              borderWidth: 1,
+              borderRadius: 10,
+              padding: 15,
+              marginTop: 16,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                color: "#000000",
+                fontSize: 16,
+                fontWeight: "bold",
+              }}
+            >
+              Mostrar las {allReviews?.length} evaluaciones
+            </Text>
+          </TouchableOpacity>
           <Divider marginTop={5} />
         </Box>
       </ScrollView>
