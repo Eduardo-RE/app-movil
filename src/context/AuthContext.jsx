@@ -16,16 +16,6 @@ export const AuthContextProvider = ({ children }) => {
     return sendPasswordResetEmail(auth, email);
   };
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(authG, (currentUser) => {
-  //     console.log("User", currentUser);
-  //     setUser(currentUser);
-  //   });
-  //   return () => {
-  //     unsubscribe();
-  //   };
-  // }, []);
-
   return (
     <AuthContext.Provider
       value={{

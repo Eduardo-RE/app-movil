@@ -4,22 +4,17 @@ import { Box } from "native-base";
 import BlockScreen from "../blockScreen/Index";
 import { firebaseapp } from "../../utils/firebase";
 import { getAuth } from "firebase/auth";
+import { useSelector } from "react-redux";
 
 const FavoritesScreen = () => {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const auth = getAuth(firebaseapp);
-
-  React.useEffect(() => {
-    console.log("authG.currentUser", auth.currentUser);
-    if (auth.currentUser) {
-      setLoggedIn(true);
-    }
-  }, [auth]);
+  const user = useSelector((state) => state.user);
 
   return (
     <>
-      {loggedIn ? (
-        <Box safeArea></Box>
+      {user.isAuthenticated ? (
+        <Box safeArea>
+          <Text>Favoritos</Text>
+        </Box>
       ) : (
         <BlockScreen
           ScreenName={"Favoritos"}
