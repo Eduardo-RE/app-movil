@@ -4,21 +4,14 @@ import { Box, Text } from "native-base";
 import BlockScreen from "../blockScreen/Index";
 import { firebaseapp } from "../../utils/firebase";
 import { getAuth } from "firebase/auth";
+import { useSelector } from "react-redux";
 
 const AppointmentScreen = () => {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const auth = getAuth(firebaseapp);
-
-  React.useEffect(() => {
-    console.log("authG.currentUser", auth.currentUser);
-    if (auth.currentUser) {
-      setLoggedIn(true);
-    }
-  }, []);
+  const user = useSelector((state) => state.user);
 
   return (
     <>
-      {loggedIn ? (
+      {user.isAuthenticated ? (
         <Box safeArea flex={1} bgColor={"white"}>
           <Text fontSize={"2xl"} fontWeight={"bold"}>
             {" "}

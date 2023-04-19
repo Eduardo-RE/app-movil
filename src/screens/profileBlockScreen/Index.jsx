@@ -3,10 +3,20 @@ import React from "react";
 import { Box, Button, Divider, HStack, Image, Text, VStack } from "native-base";
 import { Ionicons, Feather } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
 
 const ProfileBlockScreen = () => {
+  const user = useSelector((state) => state.user);
   const navigation = useNavigation();
+
   const { width, height } = Dimensions.get("window");
+
+  React.useEffect(() => {
+    if (user.isAuthenticated) {
+      navigation.navigate("Profile");
+    }
+  }, [user.isAuthenticated]);
+
   return (
     <Box safeArea bgColor="white" flex={1} paddingX={5}>
       <Box mt={height * 0.05}>

@@ -11,6 +11,9 @@ import { MaterialIcons, Ionicons, Feather } from "@expo/vector-icons";
 import ClientDeailScreen from "../screens/ClientDetailScreen/Index";
 import MessagesScreen from "../screens/messagesScreen/Index";
 import FavoritesScreen from "../screens/favoritesScreen/Index";
+import BookAppointment from "../screens/bookAppointment/Index";
+import { Text } from "react-native";
+import Navbar from "../components/Navbar";
 
 const Stack = createNativeStackNavigator();
 
@@ -143,9 +146,29 @@ const HomeStackNavigator = ({ navigation, route }) => {
     }
   }, [navigation, route]);
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
-      <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="ClientDetails" component={ClientDeailScreen} />
+    <HomeStack.Navigator
+      screenOptions={{
+        headerTitleAlign: "center",
+      }}
+    >
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="ClientDetails"
+        component={ClientDeailScreen}
+        options={{ headerShown: false }}
+      />
+      <HomeStack.Screen
+        name="BookAppointment"
+        component={BookAppointment}
+        options={{
+          header: (props) => <Navbar props={props} />,
+          title: "Confirmar cita",
+        }}
+      />
     </HomeStack.Navigator>
   );
 };

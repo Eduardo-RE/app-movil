@@ -4,13 +4,13 @@ import { StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { formatCurrency } from "../utils";
 
-const DoctorCard = ({ doctor }) => {
+const BusinessCard = ({ business }) => {
   const navigation = useNavigation();
   const width = Dimensions.get("window").width;
   const height = Dimensions.get("window").height;
 
-  const allReviews = doctor.reviews
-    ? Object.keys(doctor?.reviews).map((key) => doctor?.reviews[key])
+  const allReviews = business.reviews
+    ? Object.keys(business?.reviews).map((key) => business?.reviews[key])
     : [];
   const allRatings = allReviews.reduce(
     (accum, object) => accum + object.rating / allReviews.length,
@@ -25,13 +25,17 @@ const DoctorCard = ({ doctor }) => {
         alignItems: "center",
         backgroundColor: "#fff",
       }}
-      onPress={() => navigation.navigate("ClientDetails", { doctor })}
+      onPress={() => navigation.navigate("ClientDetails", { business })}
     >
       <Box bg="white" rounded="lg" mt={3}>
         <VStack space={2}>
           <Image
             source={{
-              uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+              uri: business.photos
+                ? Object.keys(business?.photos).map(
+                    (item) => business?.photos[item]
+                  )[0]?.picture
+                : "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
             }}
             width={width - 40}
             height={height / 2.5}
@@ -49,16 +53,12 @@ const DoctorCard = ({ doctor }) => {
           >
             <VStack>
               <Text color={"#000"} fontWeight="bold" fontSize={"sm"}>
-                {doctor.ubicacion}
+                {business.ubicacion}
               </Text>
-              <Text fontSize={"sm"}>{doctor.descripcion}</Text>
-              <Text fontSize={"sm"}>{doctor.nombre}</Text>
+              <Text fontSize={"sm"}>{business.descripcion}</Text>
+              <Text fontSize={"sm"}>{business.nombre}</Text>
               <Text fontSize={"sm"}>{formatCurrency(1000, "MXN")}</Text>
             </VStack>
-            <Text fontSize={"sm"}>
-              {"\u2605"}
-              {allRatings.toFixed(2)}
-            </Text>
           </HStack>
         </VStack>
       </Box>
@@ -66,6 +66,6 @@ const DoctorCard = ({ doctor }) => {
   );
 };
 
-export default DoctorCard;
+export default BusinessCard;
 
 const styles = StyleSheet.create({});

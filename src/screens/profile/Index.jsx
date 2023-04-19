@@ -1,33 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import React from "react";
 import { Box, Button } from "native-base";
-import { firebaseapp } from "../../utils/firebase";
 import ProfileBlockScreen from "../profileBlockScreen/Index";
-import { getAuth } from "firebase/auth";
-
+import { useDispatch, useSelector } from "react-redux";
+import { CerrarSesion } from "../../redux/actions/authActions";
 const ProfileScreen = () => {
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const auth = getAuth(firebaseapp);
-
-  React.useEffect(() => {
-    console.log("authG.currentUser", auth.currentUser);
-    if (auth.currentUser) {
-      setLoggedIn(true);
-    }
-  }, []);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   return (
     <>
-      {loggedIn ? (
+      {user.isAuthenticated ? (
         <Box safeArea>
           <Text fontSize={"2xl"} fontWeight={"bold"}>
             {" "}
             Perfil
           </Text>
           <Button
-            onPress={() => {
-              auth.signOut();
-              setLoggedIn(false);
+            onPress={async () => {
+              await auth.signOut();
+              dispatch(CerrarSesion());
             }}
           >
             <Text>Logout</Text>
